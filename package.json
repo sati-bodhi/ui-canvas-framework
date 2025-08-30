@@ -1,0 +1,63 @@
+{
+  "name": "@ui-canvas/framework",
+  "version": "0.1.0",
+  "description": "Three-layer architecture and reusable web components framework. Extends SuperDesign workflows with structured component development and production infrastructure.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ui-canvas": "bin/cli.js"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "playwright test",
+    "dev": "node scripts/dev.js",
+    "publish-pkg": "npm run build && npm publish --access public"
+  },
+  "keywords": [
+    "three-layer-architecture",
+    "web-components",
+    "reusable-components",
+    "superdesign",
+    "ui-framework",
+    "component-development",
+    "design-system",
+    "canvas-staging",
+    "visual-testing",
+    "architecture-enforcement"
+  ],
+  "author": "Super Design Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sati-bodhi/ui-canvas-framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sati-bodhi/ui-canvas-framework/issues"
+  },
+  "homepage": "https://github.com/sati-bodhi/ui-canvas-framework#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.55.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "express": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^10.1.8"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "templates/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@playwright/test": "^1.50.0"
+  }
+}

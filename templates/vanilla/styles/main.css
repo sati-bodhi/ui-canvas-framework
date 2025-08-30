@@ -1,0 +1,301 @@
+/**
+ * GrowTogether UI - Single Source of Truth CSS
+ * 
+ * All component styles are defined here.
+ * No inline CSS allowed anywhere in the codebase.
+ */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ============================================================================= */
+
+:root {
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Colors */
+  --color-primary: #059669;      /* Garden green */
+  --color-secondary: #d97706;    /* Earth orange */
+  --color-accent: #7c3aed;       /* Purple accent */
+  
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Card System */
+  --card-bg: white;
+  --card-border-radius: 0.75rem;
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --card-padding: 0.75rem;
+  --card-padding-lg: 1rem;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  /* Transitions */
+  --transition-all: all 0.15s ease-in-out;
+  --transition-transform: transform 0.15s ease-in-out;
+}
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-50);
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+   CARD COMPONENTS - SINGLE SOURCE OF TRUTH
+   ============================================================================= */
+
+/* Base Card Styles */
+.card-base {
+  background: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition-all);
+}
+
+.card-base:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Compact Cards (40% image height, minimal content) */
+.card-compact {
+  composes: card-base;
+  max-width: 24rem;
+  margin: 0 auto;
+}
+
+.card-compact-image {
+  position: relative;
+  height: 8rem; /* 40% of typical card height */
+  overflow: hidden;
+}
+
+.card-compact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-compact-content {
+  padding: var(--card-padding);
+}
+
+.card-compact-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.card-compact-plant {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  color: var(--color-gray-700);
+  font-size: var(--font-size-sm);
+}
+
+.card-compact-meta {
+  display: flex;
+  align-items: center;
+  color: var(--color-gray-500);
+  font-size: var(--font-size-xs);
+  gap: var(--spacing-2);
+}
+
+/* Embedded Cards (minimal, for use within other components) */
+.card-embedded {
+  composes: card-base;
+  padding: var(--spacing-3);
+  box-shadow: none;
+  border: 1px solid var(--color-gray-200);
+}
+
+.card-embedded:hover {
+  transform: none;
+  box-shadow: var(--card-shadow);
+}
+
+.card-embedded-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.card-embedded-thumbnail {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--spacing-2);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-embedded-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-embedded-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-embedded-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-900);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Standard Cards (full details, 50% image height) */
+.card-standard {
+  composes: card-base;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.card-standard-image {
+  position: relative;
+  height: 12rem; /* 50% of typical card height */
+  overflow: hidden;
+}
+
+.card-standard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-standard-content {
+  padding: var(--card-padding-lg);
+}
+
+.card-standard-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--spacing-3) 0;
+}
+
+.card-standard-description {
+  color: var(--color-gray-600);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+}
+
+.card-standard-meta {
+  border-top: 1px solid var(--color-gray-200);
+  padding-top: var(--spacing-3);
+  color: var(--color-gray-500);
+  font-size: var(--font-size-xs);
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Icon utilities for Lucide icons */
+.icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+}
+
+.icon-sm { width: 0.75rem; height: 0.75rem; }
+.icon-lg { width: 1.25rem; height: 1.25rem; }
+
+/* Status indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.status-indicator-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-indicator-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-indicator-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

@@ -70,7 +70,12 @@ export async function createComponent(name, options) {
   console.log('🔧 Next steps:');
   console.log('1. Import and register the component');
   console.log('2. Add styles to styles/main.css');
-  console.log('3. Test with: npx ui-canvas canvas stage ' + (layer === 'component' ? templatePath : componentPath));
+  if (layer === 'component') {
+    const templatePath = path.join(targetDir, `${name}.html`);
+    console.log('3. Test with: npx ui-canvas canvas stage ' + templatePath);
+  } else {
+    console.log('3. Test with: npx ui-canvas canvas stage ' + componentPath);
+  }
 }
 
 export async function initializeWebComponents() {

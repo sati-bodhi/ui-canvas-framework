@@ -582,6 +582,18 @@ export default {
                         <h3><i data-lucide="terminal"></i> CLI Commands</h3>
                         <div class="command-list">
                             <div class="command">
+                                <code>ui-canvas init [project]</code>
+                                <span>Initialize project structure</span>
+                            </div>
+                            <div class="command">
+                                <code>ui-canvas check-prompts</code>
+                                <span>Analyze AI prompt setup</span>
+                            </div>
+                            <div class="command">
+                                <code>ui-canvas setup-prompts [1|2|3]</code>
+                                <span>Configure AI integration</span>
+                            </div>
+                            <div class="command">
                                 <code>ui-canvas serve</code>
                                 <span>Start development server</span>
                             </div>
@@ -593,6 +605,50 @@ export default {
                                 <code>ui-canvas validate</code>
                                 <span>Check architecture compliance</span>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3><i data-lucide="brain"></i> AI Integration</h3>
+                        <p style="margin-bottom: 1rem; color: var(--color-gray-600);">Smart context switching between SuperDesign mockup creation and framework component development.</p>
+                        
+                        <div style="background: var(--color-gray-50); border-radius: 0.5rem; padding: 1.5rem; margin: 1rem 0;">
+                            <h4 style="margin: 0 0 1rem 0; color: var(--color-gray-900); font-size: 1rem;">Quick Setup</h4>
+                            <div class="code-block" style="margin: 0;">
+                                <code># 1. Analyze existing AI setup
+npx ui-canvas check-prompts
+
+# 2. Choose integration level
+npx ui-canvas setup-prompts 3
+
+# 3. Start developing with context switching</code>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 0.5rem; padding: 1rem;">
+                                <h5 style="margin: 0 0 0.5rem 0; color: #0369a1; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i data-lucide="wand-2" style="width: 1rem; height: 1rem;"></i>
+                                    SuperDesign Mode
+                                </h5>
+                                <p style="margin: 0; font-size: 0.875rem; color: #374151;">Creative mockup creation in <code>.superdesign/</code> folder</p>
+                            </div>
+                            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.5rem; padding: 1rem;">
+                                <h5 style="margin: 0 0 0.5rem 0; color: #15803d; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i data-lucide="layers" style="width: 1rem; height: 1rem;"></i>
+                                    Framework Mode
+                                </h5>
+                                <p style="margin: 0; font-size: 0.875rem; color: #374151;">Production components with architecture validation</p>
+                            </div>
+                        </div>
+
+                        <div class="integration-options" style="margin: 1rem 0;">
+                            <h5 style="color: var(--color-gray-700); margin-bottom: 0.5rem;">Integration Options:</h5>
+                            <ul style="margin: 0; padding-left: 1.5rem; color: var(--color-gray-600); font-size: 0.875rem;">
+                                <li><strong>Keep Current Setup (1)</strong> - Preserve existing AI configuration</li>
+                                <li><strong>Framework Only (2)</strong> - Pure three-layer architecture workflow</li>
+                                <li><strong>Integrated Mode (3)</strong> - Context switching between both workflows</li>
+                            </ul>
                         </div>
                     </div>
                     

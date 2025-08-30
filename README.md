@@ -70,6 +70,28 @@ my-project/
 └── tests/              # Visual regression tests
 ```
 
+### AI Integration Setup
+
+The framework provides smart context switching between SuperDesign mockup creation and framework component development:
+
+```bash
+# 1. Analyze existing AI prompt setup
+npx ui-canvas check-prompts
+
+# 2. Choose integration level
+npx ui-canvas setup-prompts 3
+```
+
+**Integration Options:**
+- **Option 1: Keep Current Setup** - Preserve existing AI configuration
+- **Option 2: Framework Only** - Pure three-layer architecture workflow  
+- **Option 3: Integrated Mode** ⭐ - Context switching between SuperDesign + Framework
+
+**Integrated Mode provides:**
+- 🎨 **SuperDesign Mode** - Creative mockup generation in `.superdesign/` folder
+- 🏗️ **Framework Mode** - Production component development with architecture validation
+- 🧠 **Smart Context Detection** - Automatically switches based on your request and file location
+
 ### Start Development
 
 ```bash
@@ -185,6 +207,8 @@ npx ui-canvas validate
 ### Project Management
 ```bash
 npx ui-canvas init [project-name]     # Initialize new project
+npx ui-canvas check-prompts           # Analyze AI prompt setup
+npx ui-canvas setup-prompts [1|2|3]   # Configure AI integration
 npx ui-canvas serve                   # Start development server
 npx ui-canvas validate                # Check architecture compliance
 ```

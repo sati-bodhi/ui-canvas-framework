@@ -62,10 +62,13 @@ export class UICanvasComponent extends HTMLElement {
 
   // CSS utilities
   adoptGlobalStyles() {
-    // Link to main.css for single source of truth
+    // Link to main.css for single source of truth (if it exists)
     const linkElement = document.createElement('link');
     linkElement.rel = 'stylesheet';
     linkElement.href = '/styles/main.css';
+    linkElement.onerror = () => {
+      console.log('main.css not found - continuing without global styles');
+    };
     this.shadowRoot.appendChild(linkElement);
   }
 
@@ -126,3 +129,6 @@ export class UICanvasComponent extends HTMLElement {
     };
   }
 }
+
+// Export the class
+export { UICanvasComponent };

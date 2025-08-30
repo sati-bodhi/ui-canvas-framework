@@ -151,12 +151,22 @@ export { framework };
 function generateComponentContent(name, className, props, layer) {
   const propsArray = props.length > 0 ? `['${props.join("', '")}']` : '[]';
   
+  // Calculate import path based on target directory
+  let importPath;
+  if (layer === 'component') {
+    importPath = '../../scripts/web-components/component-base.js';
+  } else if (layer === 'page') {
+    importPath = '../scripts/web-components/component-base.js';
+  } else {
+    importPath = '../scripts/web-components/component-base.js';
+  }
+  
   return `/**
  * ${className} Component
  * Layer: ${layer}
  */
 
-import { UICanvasComponent } from '../scripts/web-components/component-base.js';
+import { UICanvasComponent } from '${importPath}';
 
 export class ${className} extends UICanvasComponent {
   static get observedAttributes() {

@@ -1,0 +1,59 @@
+# GitHub Pages Configuration for UI Canvas Framework Documentation
+
+title: "UI Canvas Framework"
+description: "Three-Layer Architecture & Reusable Web Components Framework. Production infrastructure for SuperDesign workflows."
+url: "https://sati-bodhi.github.io"
+baseurl: "/ui-canvas-framework"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Navigation
+navigation:
+  - name: "Documentation"
+    url: "/ui-canvas-framework/"
+  - name: "Development Journal"
+    url: "/ui-canvas-framework/development-journal.html"
+  - name: "GitHub"
+    url: "https://github.com/sati-bodhi/ui-canvas-framework"
+
+# Social/External Links
+github_username: sati-bodhi
+repository: ui-canvas-framework
+
+# SEO
+lang: en
+author: "Sati Bodhi"
+twitter:
+  username: sati-bodhi
+  card: summary_large_image
+
+# Collections
+collections:
+  journal:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      
+# Plugin
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude
+exclude:
+  - README.md
+  - package.json
+  - node_modules
+  - scripts
+  - templates

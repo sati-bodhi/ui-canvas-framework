@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Canvas Framework - Documentation & Live Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i data-lucide="layers"></i>
+                <span>UI Canvas Framework</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#demo">Live Demo</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#docs">Documentation</a>
+                <a href="development-journal.html">
+                    <i data-lucide="book-open"></i> Dev Journal
+                </a>
+                <a href="https://github.com/sati-bodhi/ui-canvas-framework" target="_blank">
+                    <i data-lucide="github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>UI Canvas Framework</h1>
+                    <p class="hero-subtitle">Three-Layer Architecture & Reusable Web Components</p>
+                    <p class="hero-description">
+                        Production infrastructure that extends <a href="https://github.com/superdesigndev/superdesign" target="_blank">SuperDesign</a> workflows with structured component development, canvas staging, and automated testing.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-primary">
+                            <i data-lucide="play"></i>
+                            View Live Demo
+                        </a>
+                        <a href="https://github.com/sati-bodhi/ui-canvas-framework" class="btn btn-secondary" target="_blank">
+                            <i data-lucide="github"></i>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="framework-flow">
+                        <div class="flow-step">
+                            <div class="step-icon superdesign">
+                                <i data-lucide="wand-2"></i>
+                            </div>
+                            <h4>SuperDesign</h4>
+                            <p>Generate mockups</p>
+                        </div>
+                        <div class="flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-icon ui-canvas">
+                                <i data-lucide="layers"></i>
+                            </div>
+                            <h4>UI Canvas</h4>
+                            <p>Stage & develop</p>
+                        </div>
+                        <div class="flow-arrow">
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-icon production">
+                                <i data-lucide="package"></i>
+                            </div>
+                            <h4>Production</h4>
+                            <p>Reusable components</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>Framework Overview</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3>Three-Layer Architecture</h3>
+                        <p>Enforced separation: Components → Pages → Workflows prevents technical debt and ensures maintainability.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="component"></i>
+                        </div>
+                        <h3>Reusable Web Components</h3>
+                        <p>Single source of truth component system with automatic CSS integration and consistency enforcement.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="palette"></i>
+                        </div>
+                        <h3>Canvas Staging System</h3>
+                        <p>Production workflow for SuperDesign mockups with staging, archival, and reference generation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="test-tube"></i>
+                        </div>
+                        <h3>Visual Testing Pipeline</h3>
+                        <p>Automated Playwright-based regression testing prevents design inconsistencies across development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Section -->
+        <section id="demo" class="section bg-gray">
+            <div class="container">
+                <h2>Live Demo: GrowTogether UI Project</h2>
+                <p class="section-subtitle">
+                    Real-world example of UI Canvas Framework powering a garden management application
+                </p>
+                
+                <div class="demo-container">
+                    <div class="demo-sidebar">
+                        <div class="demo-nav">
+                            <button class="demo-nav-item active" data-demo="canvas">
+                                <i data-lucide="palette"></i>
+                                Canvas Staging
+                            </button>
+                            <button class="demo-nav-item" data-demo="components">
+                                <i data-lucide="component"></i>
+                                Web Components
+                            </button>
+                            <button class="demo-nav-item" data-demo="architecture">
+                                <i data-lucide="layers"></i>
+                                Architecture
+                            </button>
+                            <button class="demo-nav-item" data-demo="testing">
+                                <i data-lucide="test-tube"></i>
+                                Visual Testing
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-content">
+                        <!-- Canvas Demo -->
+                        <div class="demo-panel active" id="demo-canvas">
+                            <h3>SuperDesign + Canvas Staging Workflow</h3>
+                            <div class="demo-steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Generate with SuperDesign</h4>
+                                        <p>Create garden task card mockup from natural language prompt</p>
+                                        <div class="code-block">
+                                            <code>SuperDesign: "Create a compact task card for garden activities with status badges"</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Stage for Development</h4>
+                                        <p>Framework stages mockup in canvas for iteration</p>
+                                        <div class="code-block">
+                                            <code>npx ui-canvas canvas stage garden-task-card</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Archive When Approved</h4>
+                                        <p>Move to permanent reference with automated screenshots</p>
+                                        <div class="code-block">
+                                            <code>npx ui-canvas canvas archive garden-task-card.html task-card-v1</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Components Demo -->
+                        <div class="demo-panel" id="demo-components">
+                            <h3>Reusable Web Components</h3>
+                            <p>Single source of truth system with automatic consistency</p>
+                            
+                            <div class="component-examples">
+                                <div class="component-example">
+                                    <h4>Task Card Variants</h4>
+                                    <div class="component-variants">
+                                        <div class="card-demo card-compact">
+                                            <div class="card-header">
+                                                <h5>Water tomatoes</h5>
+                                                <span class="status status-pending">Pending</span>
+                                            </div>
+                                            <p class="card-description">Check soil moisture and water if needed</p>
+                                            <div class="card-meta">
+                                                <span class="priority priority-high">High</span>
+                                                <span class="due-date">Due: Today</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card-demo card-embedded">
+                                            <h5>Plant seedlings</h5>
+                                            <span class="status status-in-progress">In Progress</span>
+                                        </div>
+                                        
+                                        <div class="card-demo card-standard">
+                                            <div class="card-image">
+                                                <div class="placeholder-image">📷</div>
+                                            </div>
+                                            <div class="card-content">
+                                                <h5>Harvest lettuce</h5>
+                                                <p>Ready for first harvest of the season</p>
+                                                <div class="card-actions">
+                                                    <button class="btn-small">Complete</button>
+                                                    <button class="btn-small secondary">Reschedule</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Architecture Demo -->
+                        <div class="demo-panel" id="demo-architecture">
+                            <h3>Three-Layer Architecture</h3>
+                            <div class="architecture-diagram">
+                                <div class="layer layer-3">
+                                    <div class="layer-header">
+                                        <h4>Layer 3: Workflows</h4>
+                                        <span class="layer-description">Multi-step user journeys</span>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item">Task Creation Workflow</div>
+                                        <div class="layer-item">Garden Planning Journey</div>
+                                        <div class="layer-item">Plant Care Guide</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layer layer-2">
+                                    <div class="layer-header">
+                                        <h4>Layer 2: Pages</h4>
+                                        <span class="layer-description">Component compositions</span>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item">Dashboard Page</div>
+                                        <div class="layer-item">Task Management Page</div>
+                                        <div class="layer-item">Garden Overview Page</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="layer layer-1">
+                                    <div class="layer-header">
+                                        <h4>Layer 1: Components</h4>
+                                        <span class="layer-description">Reusable web components</span>
+                                    </div>
+                                    <div class="layer-items">
+                                        <div class="layer-item">Task Cards</div>
+                                        <div class="layer-item">Plant Cards</div>
+                                        <div class="layer-item">Status Badges</div>
+                                        <div class="layer-item">Image Carousels</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testing Demo -->
+                        <div class="demo-panel" id="demo-testing">
+                            <h3>Visual Testing Pipeline</h3>
+                            <p>Automated regression testing prevents design inconsistencies</p>
+                            
+                            <div class="testing-results">
+                                <div class="test-result">
+                                    <div class="test-status passed">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <div class="test-details">
+                                        <h5>Task Card Compact - Visual Consistency</h5>
+                                        <p>✓ All 3 variants match approved mockups across browsers</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="test-result">
+                                    <div class="test-status passed">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <div class="test-details">
+                                        <h5>Architecture Validation</h5>
+                                        <p>✓ No inline CSS detected, single source of truth maintained</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="test-result">
+                                    <div class="test-status passed">
+                                        <i data-lucide="check-circle"></i>
+                                    </div>
+                                    <div class="test-details">
+                                        <h5>Canvas Mockup Archive</h5>
+                                        <p>✓ 12 approved mockups with reference screenshots</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="section">
+            <div class="container">
+                <h2>Complete Development Workflow</h2>
+                <div class="workflow-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon superdesign">
+                            <i data-lucide="wand-2"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Design Generation</h4>
+                            <p>Use SuperDesign VS Code extension to generate mockups from natural language prompts</p>
+                            <div class="code-example">
+                                <code>"Create a mobile dashboard for garden task management with card-based layout"</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon ui-canvas">
+                            <i data-lucide="palette"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Canvas Staging</h4>
+                            <p>Framework automatically stages SuperDesign mockups for development iteration</p>
+                            <div class="code-example">
+                                <code>npx ui-canvas canvas stage garden-dashboard</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon architecture">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Component Development</h4>
+                            <p>Break mockups into reusable web components following three-layer architecture</p>
+                            <div class="code-example">
+                                <code>npx ui-canvas generate component task-card --variant=compact</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon testing">
+                            <i data-lucide="test-tube"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Visual Testing</h4>
+                            <p>Automated Playwright tests ensure components match approved designs</p>
+                            <div class="code-example">
+                                <code>npm run test:visual --update-snapshots</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon production">
+                            <i data-lucide="package"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Production Deployment</h4>
+                            <p>Components are production-ready with enforced consistency and automated testing</p>
+                            <div class="code-example">
+                                <code>npm run build && npm run deploy</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="docs" class="section bg-gray">
+            <div class="container">
+                <h2>Quick Start Documentation</h2>
+                <div class="docs-grid">
+                    <div class="doc-section">
+                        <h3><i data-lucide="download"></i> Installation</h3>
+                        <div class="code-block">
+                            <code>npm install @ui-canvas/framework</code>
+                        </div>
+                        <div class="code-block">
+                            <code>npx ui-canvas init my-project</code>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-section">
+                        <h3><i data-lucide="settings"></i> Configuration</h3>
+                        <div class="code-block">
+<code>// ui-canvas.config.js
+export default {
+  framework: 'vanilla',
+  layers: {
+    components: 'components',
+    pages: 'pages',
+    workflows: 'workflows'
+  }
+}</code>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-section">
+                        <h3><i data-lucide="terminal"></i> CLI Commands</h3>
+                        <div class="command-list">
+                            <div class="command">
+                                <code>ui-canvas serve</code>
+                                <span>Start development server</span>
+                            </div>
+                            <div class="command">
+                                <code>ui-canvas canvas stage &lt;mockup&gt;</code>
+                                <span>Stage SuperDesign mockup</span>
+                            </div>
+                            <div class="command">
+                                <code>ui-canvas validate</code>
+                                <span>Check architecture compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doc-section">
+                        <h3><i data-lucide="external-link"></i> External Resources</h3>
+                        <div class="resource-links">
+                            <a href="https://github.com/sati-bodhi/ui-canvas-framework" target="_blank">
+                                <i data-lucide="github"></i> GitHub Repository
+                            </a>
+                            <a href="https://github.com/superdesigndev/superdesign" target="_blank">
+                                <i data-lucide="wand-2"></i> SuperDesign Extension
+                            </a>
+                            <a href="https://marketplace.visualstudio.com/items?itemName=iganbold.superdesign" target="_blank">
+                                <i data-lucide="download"></i> VS Code Marketplace
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <i data-lucide="layers"></i>
+                        <span>UI Canvas Framework</span>
+                    </div>
+                    <p>Production infrastructure for SuperDesign workflows</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Framework</h4>
+                        <a href="https://github.com/sati-bodhi/ui-canvas-framework">GitHub</a>
+                        <a href="https://www.npmjs.com/package/@ui-canvas/framework">npm Package</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Integration</h4>
+                        <a href="https://github.com/superdesigndev/superdesign">SuperDesign</a>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=iganbold.superdesign">VS Code Extension</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

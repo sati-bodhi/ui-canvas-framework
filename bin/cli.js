@@ -283,4 +283,161 @@ program
     await initializeWebComponents();
   });
 
+// Component registry management
+const registryCmd = program
+  .command('registry')
+  .description('Component registry management');
+
+registryCmd
+  .command('init')
+  .description('Initialize component registry')
+  .action(async () => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('init');
+  });
+
+registryCmd
+  .command('scan')
+  .description('Scan and update component registry')
+  .action(async () => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('scan');
+  });
+
+registryCmd
+  .command('list')
+  .description('List registered components')
+  .option('--layer <layer>', 'Filter by layer (component, page, workflow)')
+  .option('--search <term>', 'Search components by name or description')
+  .action(async (options) => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('list', options);
+  });
+
+registryCmd
+  .command('info <name>')
+  .description('Show detailed component information')
+  .action(async (name) => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('info', { name });
+  });
+
+registryCmd
+  .command('docs')
+  .description('Generate component documentation')
+  .option('--output <path>', 'Output directory', 'docs/components')
+  .action(async (options) => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('docs', options);
+  });
+
+registryCmd
+  .command('validate')
+  .description('Validate component registry integrity')
+  .action(async () => {
+    const { registryCommand } = await import('../scripts/registry-manager.js');
+    await registryCommand('validate');
+  });
+
+// Visual testing commands
+program
+  .command('test')
+  .description('Run visual regression tests')
+  .option('--update-snapshots', 'Update visual snapshots instead of comparing')
+  .option('--component <name>', 'Test specific component only')
+  .action(async (options) => {
+    const { testCommand } = await import('../scripts/visual-testing.js');
+    await testCommand({
+      updateSnapshots: options.updateSnapshots,
+      component: options.component
+    });
+  });
+
+// CSS token validation
+program
+  .command('tokens')
+  .description('Validate CSS tokens and design system consistency')
+  .option('--report', 'Generate detailed token usage report')
+  .action(async (options) => {
+    const { validateTokens } = await import('../scripts/css-token-validator.js');
+    await validateTokens(options);
+  });
+
+// Complete validation suite
+program
+  .command('validate-all')
+  .description('Run all validation checks (architecture, registry, tokens, visual)')
+  .option('--fix', 'Automatically fix issues where possible')
+  .action(async (options) => {
+    console.log('🔍 Running complete validation suite...\n');
+    
+    let allPassed = true;
+    
+    try {
+      // 1. Architecture validation
+      console.log('1️⃣ Architecture Validation');
+      console.log('==========================');
+      execSync('node scripts/validate-architecture.js', { stdio: 'inherit', cwd: process.cwd() });
+      console.log('✅ Architecture validation passed\n');
+    } catch (error) {
+      console.log('❌ Architecture validation failed\n');
+      allPassed = false;
+    }
+    
+    try {
+      // 2. Component registry validation
+      console.log('2️⃣ Component Registry Validation');
+      console.log('=================================');
+      const { registryCommand } = await import('../scripts/registry-manager.js');
+      const registryResults = await registryCommand('validate');
+      if (registryResults.issues.length > 0) {
+        allPassed = false;
+      }
+      console.log('');
+    } catch (error) {
+      console.log('❌ Registry validation failed\n');
+      allPassed = false;
+    }
+    
+    try {
+      // 3. CSS token validation
+      console.log('3️⃣ CSS Token Validation');
+      console.log('========================');
+      const { validateTokens } = await import('../scripts/css-token-validator.js');
+      const tokenResults = await validateTokens();
+      if (tokenResults.violations > 0) {
+        allPassed = false;
+      }
+      console.log('');
+    } catch (error) {
+      console.log('❌ Token validation failed\n');
+      allPassed = false;
+    }
+    
+    try {
+      // 4. Visual regression tests
+      console.log('4️⃣ Visual Regression Tests');
+      console.log('===========================');
+      const { testCommand } = await import('../scripts/visual-testing.js');
+      const visualResults = await testCommand({ updateSnapshots: false });
+      if (visualResults.failed > 0) {
+        allPassed = false;
+      }
+      console.log('');
+    } catch (error) {
+      console.log('❌ Visual tests failed\n');
+      allPassed = false;
+    }
+    
+    // Summary
+    console.log('🎯 Validation Summary');
+    console.log('=====================');
+    if (allPassed) {
+      console.log('🎉 All validations passed! Your component library is regression-proof.');
+    } else {
+      console.log('❌ Some validations failed. Address the issues above to prevent regressions.');
+      process.exit(1);
+    }
+  });
+
 program.parse();

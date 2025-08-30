@@ -1,4 +1,8 @@
-# Context-Aware UI Development
+# Context-Aware UI Development with Regression Prevention
+
+**📚 IMPORTANT**: This framework includes comprehensive regression prevention. Follow the [Recommended Development Workflow](./WORKFLOW.md) for step-by-step guidance.
+
+**🤖 For AI Assistants**: See [Workflow Summary](./WORKFLOW-SUMMARY.md) for condensed implementation guidance and essential commands.
 
 ## Context Switching
 
@@ -20,12 +24,23 @@
 - Components (Layer 1) → Pages (Layer 2) → Workflows (Layer 3)
 - CSS single source of truth in `styles/main.css`
 - Component references instead of HTML duplication
-- Run `npx ui-canvas validate` for compliance
+- **Regression prevention** with automated validation and testing
 
-**Commands:**
+**Essential Commands:**
 ```bash
-npx ui-canvas validate          # Check architecture
-npx ui-canvas canvas stage      # Stage components  
+# Complete validation suite (use before commits)
+npx ui-canvas validate-all
+
+# Component development
+npx ui-canvas create-component my-card --props "title,status"
+npx ui-canvas registry scan
+
+# Testing
+npx ui-canvas test              # Visual regression tests
+npx ui-canvas tokens            # CSS token validation
+
+# Canvas staging
+npx ui-canvas canvas stage mockup-name
 npx ui-canvas serve            # Development server
 ```
 

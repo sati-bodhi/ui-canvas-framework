@@ -36,7 +36,7 @@ UI Canvas → Stage & develop
 Production → Reusable components
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Installation
 
@@ -51,6 +51,8 @@ npx ui-canvas init my-project
 cd my-project
 npm install
 ```
+
+**🎯 New to the framework?** Follow our [**Recommended Workflow Guide**](./WORKFLOW.md) for step-by-step guidance through the complete development process.
 
 This creates the three-layer architecture:
 
@@ -221,16 +223,25 @@ npx ui-canvas canvas archive <file> <name>  # Archive approved mockup
 npx ui-canvas canvas clear            # Clear staging area
 ```
 
-### Component Generation
+### Component Development
 ```bash
-npx ui-canvas generate component <name>     # Create web component
-npx ui-canvas generate page <name>          # Create page composition  
-npx ui-canvas generate workflow <name>      # Create user workflow
+npx ui-canvas create-component <name> --props "prop1,prop2"  # Create new component
+npx ui-canvas init-components                                # Initialize web components infrastructure
 ```
 
-### Testing
+### Component Registry
 ```bash
-npx ui-canvas test                    # Run visual regression tests
+npx ui-canvas registry scan           # Update component registry
+npx ui-canvas registry list           # List all components  
+npx ui-canvas registry docs           # Generate documentation
+npx ui-canvas registry info <name>    # Component details
+```
+
+### Testing & Validation
+```bash
+npx ui-canvas validate-all            # Complete validation suite
+npx ui-canvas test                    # Visual regression tests
+npx ui-canvas tokens                  # CSS token validation
 npx ui-canvas screenshot <file>       # Take reference screenshot
 ```
 
@@ -392,6 +403,40 @@ customElements.define('task-card-compact', TaskCardCompact);
 - Props documentation in comments
 - Development placeholders for references
 - Web component JavaScript for interactivity
+
+## 📚 Quick Reference
+
+### Most Common Commands
+```bash
+# 🚀 Setup (one-time)
+npx ui-canvas init my-project
+npx ui-canvas setup-prompts 3
+npx ui-canvas init-components
+
+# 🏗️ Daily Development  
+npx ui-canvas create-component my-component --props "title,status"
+npx ui-canvas canvas stage mockup-name
+npx ui-canvas validate-all
+
+# 🔍 Before Every Commit
+npx ui-canvas test
+npx ui-canvas registry scan
+npx ui-canvas validate-all
+```
+
+### Emergency Troubleshooting
+```bash
+# Component registry issues
+npx ui-canvas registry scan --force
+
+# Visual test failures  
+npx ui-canvas test --update-snapshots
+
+# Architecture violations
+npx ui-canvas validate --fix
+```
+
+**💡 Need detailed guidance?** See the [**Recommended Workflow Guide**](./WORKFLOW.md)
 
 ## Contributing
 

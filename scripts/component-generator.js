@@ -72,16 +72,28 @@ export async function createComponent(name, options) {
   console.log('');
   console.log('📋 Usage:');
   console.log(`<${name}${props.map(p => ` ${p}="value"`).join('')}></${name}>`);
+  // Update component registry
+  try {
+    const { RegistryManager } = await import('./registry-manager.js');
+    const registry = new RegistryManager();
+    await registry.scanComponents();
+    console.log('✅ Updated component registry');
+  } catch (error) {
+    console.log('⚠️ Could not update registry:', error.message);
+  }
+  
   console.log('');
   console.log('🔧 Next steps:');
   console.log('1. Import component: <script src="' + componentPath + '"></script>');
   console.log('2. Add CSS from ' + cssPath + ' to styles/main.css');
+  console.log('3. Run: npx ui-canvas registry docs  # Generate component documentation');
   if (layer === 'component') {
     const templatePath = path.join(targetDir, `${name}.html`);
-    console.log('3. Test with: npx ui-canvas canvas stage ' + templatePath);
+    console.log('4. Test with: npx ui-canvas canvas stage ' + templatePath);
   } else {
-    console.log('3. Test with: npx ui-canvas canvas stage ' + componentPath);
+    console.log('4. Test with: npx ui-canvas canvas stage ' + componentPath);
   }
+  console.log('5. Validate: npx ui-canvas validate-all  # Run regression prevention checks');
 }
 
 // Generate BEM-compliant CSS for the component

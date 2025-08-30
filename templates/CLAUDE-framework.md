@@ -81,25 +81,65 @@ This codebase implements a **three-layer architecture** that separates concerns 
 
 ## Development Workflow
 
+**📚 IMPORTANT**: Follow the detailed [Recommended Development Workflow](./WORKFLOW.md) for step-by-step guidance through the complete development process, including regression prevention and testing protocols.
+
+**🤖 For AI Assistants**: See [Workflow Summary](./WORKFLOW-SUMMARY.md) for condensed implementation guidance and essential commands.
+
+### Quick Overview
 1. **Design Individual Components** - Create blueprints in components/cards/ or components/sections/
 2. **Test Component Isolation** - Use `npx ui-canvas canvas stage` to stage and test individual components
 3. **Compose Page Layouts** - Create page compositions using component references
 4. **Map User Journeys** - Document workflows showing complete user experiences
-5. **Validate Architecture** - Run `npx ui-canvas validate` to ensure single source of truth is maintained
+5. **Validate Architecture** - Run `npx ui-canvas validate-all` to ensure single source of truth is maintained
+
+### Daily Development Commands
+```bash
+# Component development
+npx ui-canvas create-component my-card --props "title,status"
+npx ui-canvas registry scan  # Update registry
+
+# Testing & validation (before commits)  
+npx ui-canvas validate-all   # Complete validation suite
+npx ui-canvas test          # Visual regression tests
+
+# Canvas staging
+npx ui-canvas canvas stage mockup-name
+npx ui-canvas canvas status
+```
 
 ## UI Canvas Framework Commands
 
-### Architecture Validation
-Run the three-layer architecture integrity test:
+### Complete Validation Suite (Recommended)
+Run all validation checks to prevent regression loops:
 ```bash
-npx ui-canvas validate
+npx ui-canvas validate-all
 ```
 
-Validates:
-- **CSS Single Source of Truth**: All styles consolidated in `styles/main.css`
-- **Layer Dependencies**: Components don't reference other layers
-- **Component References**: Pages/workflows use component reference syntax
-- **No Inline CSS**: Prevents style duplication and inconsistency
+This comprehensive check includes:
+1. **Architecture Validation** - Three-layer compliance
+2. **Component Registry Validation** - Registry integrity 
+3. **CSS Token Validation** - Design system consistency
+4. **Visual Regression Tests** - Catch breaking changes
+
+### Individual Validation Commands
+```bash
+# Architecture only
+npx ui-canvas validate
+
+# Visual regression testing
+npx ui-canvas test
+npx ui-canvas test --component specific-component
+npx ui-canvas test --update-snapshots  # Update after design changes
+
+# CSS token and design system validation
+npx ui-canvas tokens
+npx ui-canvas tokens --report
+
+# Component registry management
+npx ui-canvas registry scan
+npx ui-canvas registry validate
+npx ui-canvas registry docs
+```
 
 ### Canvas Management (Component Staging)
 Stage and test individual components during development:

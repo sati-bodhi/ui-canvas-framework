@@ -11,7 +11,14 @@
     "build": "node scripts/build.js",
     "test": "playwright test",
     "dev": "node scripts/dev.js",
-    "publish-pkg": "npm run build && npm publish --access public"
+    "publish-pkg": "npm run build && npm publish --access public",
+    "validate": "node bin/cli.js validate",
+    "validate-all": "node bin/cli.js validate-all",
+    "test-visual": "node bin/cli.js test",
+    "test-tokens": "node bin/cli.js tokens",
+    "registry-scan": "node bin/cli.js registry scan",
+    "registry-docs": "node bin/cli.js registry docs",
+    "canvas-status": "node bin/cli.js canvas status"
   },
   "keywords": [
     "three-layer-architecture",

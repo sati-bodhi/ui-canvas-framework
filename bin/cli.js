@@ -262,4 +262,25 @@ program
     console.log('- npx ui-canvas canvas stage mockup-name  # Create mockup');
   });
 
+// Web components scaffolding
+program
+  .command('create-component')
+  .description('Create a new web component')
+  .argument('<name>', 'Component name (e.g., task-card)')
+  .option('--layer <layer>', 'Architecture layer', 'component')
+  .option('--props <props>', 'Comma-separated props list', '')
+  .action(async (name, options) => {
+    const { createComponent } = await import('../scripts/component-generator.js');
+    await createComponent(name, options);
+  });
+
+// Initialize web components in project
+program
+  .command('init-components')
+  .description('Set up web components infrastructure in project')
+  .action(async () => {
+    const { initializeWebComponents } = await import('../scripts/component-generator.js');
+    await initializeWebComponents();
+  });
+
 program.parse();

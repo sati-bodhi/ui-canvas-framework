@@ -228,15 +228,15 @@
                     <div class="problem-box">
                         <div class="problem-title">
                             <i data-lucide="alert-triangle"></i>
-                            The Problem We're Solving
+                            The Real Problem We're Solving
                         </div>
-                        <p>Our garden management UI project had accumulated <strong>75+ architecture violations</strong> and was stuck in constant "UI regression loops." Despite having beautiful designs from SuperDesign, we lacked the production infrastructure to:</p>
+                        <p><strong>AI-assisted design workflows are fundamentally unstable and unpredictable.</strong> Claude Code arbitrarily adds and removes design elements, making it impossible to maintain consistent UI development. The core issues:</p>
                         <ul>
-                            <li>Maintain design consistency across components</li>
-                            <li>Enforce single source of truth for CSS</li>
-                            <li>Convert mockups to production-ready components systematically</li>
-                            <li>Prevent visual regressions through automated testing</li>
-                            <li>Scale component development without technical debt</li>
+                            <li><strong>No design decision permanence</strong> - Previous choices get lost or overwritten</li>
+                            <li><strong>Unpredictable AI behavior</strong> - Elements added/removed without warning</li>
+                            <li><strong>Impossible fine-tuning</strong> - Can't iterate on mockups coherently</li>
+                            <li><strong>Documentation instability</strong> - Everything constantly changes</li>
+                            <li><strong>No failsafe tracking</strong> - Design decisions disappear between sessions</li>
                         </ul>
                     </div>
 
@@ -258,9 +258,9 @@
                     <div class="solution-box">
                         <div class="solution-title">
                             <i data-lucide="check-circle"></i>
-                            Three-Layer Architecture Solution
+                            Initial Framework Approach
                         </div>
-                        <p>We designed a three-layer architecture that extends SuperDesign's capabilities:</p>
+                        <p>We designed a three-layer architecture that attempts to constrain AI behavior and create design stability:</p>
                         
                         <div class="metrics-grid">
                             <div class="metric">
@@ -281,12 +281,12 @@
                             </div>
                         </div>
 
-                        <p>This architecture prevents:</p>
+                        <p>This architecture aims to provide:</p>
                         <ul>
-                            <li>Component duplication (enforced single components)</li>
-                            <li>CSS inconsistency (single source of truth)</li>
-                            <li>Layer violations (automated validation)</li>
-                            <li>Visual regression (automated testing)</li>
+                            <li><strong>Design decision permanence</strong> - Components locked in once approved</li>
+                            <li><strong>Constrained AI behavior</strong> - Framework forces consistent patterns</li>
+                            <li><strong>Traceable workflows</strong> - Canvas staging maintains design history</li>
+                            <li><strong>Validation guardrails</strong> - Automated checks prevent AI chaos</li>
                         </ul>
                     </div>
 
@@ -440,49 +440,50 @@ mockups/screenshots/             ← Automated reference screenshots
                     <div class="problem-box">
                         <div class="problem-title">
                             <i data-lucide="bug"></i>
-                            Visual Regression Challenge
+                            Design Decision Tracking Challenge
                         </div>
-                        <p>Manual visual testing was insufficient for catching design regressions across:</p>
+                        <p>Without automated validation, AI assistants would constantly break approved designs by:</p>
                         <ul>
-                            <li>Multiple browsers (Chrome, Firefox, Safari)</li>
-                            <li>Different viewport sizes (mobile, tablet, desktop)</li>
-                            <li>Component variants (compact, embedded, standard)</li>
-                            <li>Interactive states (hover, focus, active)</li>
+                            <li><strong>Modifying approved components</strong> without warning</li>
+                            <li><strong>Changing design tokens</strong> and breaking consistency</li>
+                            <li><strong>Adding unauthorized elements</strong> that violate design systems</li>
+                            <li><strong>Removing established patterns</strong> during iterations</li>
                         </ul>
+                        <p>We needed a way to <strong>lock in design decisions</strong> and prevent AI from undoing approved work.</p>
                     </div>
 
                     <div class="solution-box">
                         <div class="solution-title">
                             <i data-lucide="test-tube"></i>
-                            Playwright Visual Testing Solution
+                            Validation System for Design Stability
                         </div>
-                        <p>Implemented comprehensive Playwright-based visual testing that:</p>
+                        <p>Built validation infrastructure to constrain AI behavior and maintain design decisions:</p>
                         
                         <div class="metrics-grid">
                             <div class="metric">
-                                <div class="metric-value">3</div>
-                                <div class="metric-label">Browser Engines</div>
+                                <div class="metric-value">Visual</div>
+                                <div class="metric-label">Screenshot Testing</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">5</div>
-                                <div class="metric-label">Viewport Sizes</div>
+                                <div class="metric-value">CSS</div>
+                                <div class="metric-label">Token Validation</div>
                             </div>
                             <div class="metric">
-                                <div class="metric-value">100%</div>
-                                <div class="metric-label">Component Coverage</div>
+                                <div class="metric-value">Registry</div>
+                                <div class="metric-label">Component Tracking</div>
                             </div>
                             <div class="metric">
                                 <div class="metric-value">Auto</div>
-                                <div class="metric-label">Screenshot Gen</div>
+                                <div class="metric-label">AI Constraints</div>
                             </div>
                         </div>
 
                         <ul>
-                            <li>Automatically tests all approved mockups</li>
-                            <li>Generates baseline screenshots</li>
-                            <li>Detects pixel-perfect visual changes</li>
-                            <li>Integrates with CI/CD pipeline</li>
-                            <li>Provides detailed diff reports</li>
+                            <li><strong>Component registry</strong> - Maintains approved component catalog</li>
+                            <li><strong>Visual snapshots</strong> - Detects unauthorized design changes</li>
+                            <li><strong>CSS token validation</strong> - Prevents hardcoded style violations</li>
+                            <li><strong>Workflow documentation</strong> - Forces AI to follow established patterns</li>
+                            <li><strong>Automated validation</strong> - Runs before every commit</li>
                         </ul>
                     </div>
 
@@ -598,23 +599,32 @@ npm run validate                       # Architecture validation
 
                 <div class="journal-entry" style="background: var(--color-gray-50); border: 2px dashed var(--color-gray-300);">
                     <div class="journal-header">
-                        <h2 class="journal-title">🚀 Next Development Phase</h2>
+                        <h2 class="journal-title">🚧 Current Status & Next Steps</h2>
                         <div class="journal-date">
                             <i data-lucide="calendar"></i>
-                            Coming Soon
+                            August 30, 2025
                         </div>
                     </div>
                     
-                    <p>The next phase will document:</p>
+                    <p><strong>Framework Status:</strong> Initial validation infrastructure completed</p>
+                    
+                    <p>✅ <strong>Completed:</strong></p>
                     <ul>
-                        <li><strong>CLI Implementation:</strong> Building the command-line interface</li>
-                        <li><strong>Project Templates:</strong> React, Vue, Angular support</li>
-                        <li><strong>Real-World Testing:</strong> Using framework in grow-together-ui project</li>
-                        <li><strong>Performance Optimization:</strong> Bundle size, build speed improvements</li>
-                        <li><strong>Community Feedback:</strong> Integration with broader SuperDesign ecosystem</li>
+                        <li>Three-layer architecture framework</li>
+                        <li>Component registry system</li>
+                        <li>CLI with validation commands</li>
+                        <li>Documentation and workflow guides</li>
                     </ul>
                     
-                    <p><em>This journal will be updated live as development continues...</em></p>
+                    <p>🚧 <strong>Next Phase - Real-World Validation:</strong></p>
+                    <ul>
+                        <li><strong>Test with garden app</strong> - Apply framework to grow-together-ui project</li>
+                        <li><strong>Measure effectiveness</strong> - Does it actually solve AI workflow instability?</li>
+                        <li><strong>Refine based on usage</strong> - Identify gaps and pain points</li>
+                        <li><strong>Package for distribution</strong> - Publish to npm if validated</li>
+                    </ul>
+                    
+                    <p><em>The real test: Can we constrain AI chaos and create stable design workflows?</em></p>
                 </div>
             </div>
         </section>
